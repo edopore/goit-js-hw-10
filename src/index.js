@@ -26,6 +26,7 @@ catInfo.append(catDesc);
 fetchBreeds()
   .then(data => {
     console.log(data);
+
     try {
       data.forEach(element => {
         let item = document.createElement('option');
@@ -39,6 +40,7 @@ fetchBreeds()
   })
   .catch(error => {
     console.log(error);
+
     Notify.failure(pError.textContent);
   });
 
@@ -56,6 +58,7 @@ selectItem.addEventListener('change', () => {
         '<span>Temperament: </span>' + breeds[0].temperament;
     })
     .catch(error => {
+      console.log(error);
       Notify.failure(pError.textContent);
     });
 });
@@ -64,4 +67,4 @@ setTimeout(() => {
   new SlimSelect({
     select: '.breed-select',
   });
-}, 500);
+}, 1000);
