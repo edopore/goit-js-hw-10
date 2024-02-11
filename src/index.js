@@ -41,9 +41,8 @@ fetchBreeds()
       Notify.failure(pError.textContent);
     }
   })
-  .catch(error => {
+  .catch(() => {
     Notify.failure(pError.textContent);
-    Notify.failure(error);
   });
 
 selectItem.addEventListener('change', () => {
@@ -59,9 +58,8 @@ selectItem.addEventListener('change', () => {
       catTemperament.innerHTML =
         '<span>Temperament: </span>' + breeds[0].temperament;
     })
-    .catch(error => {
+    .catch(() => {
       Notify.failure(pError.textContent);
-      Notify.failure(error);
     });
 });
 selectItem.addEventListener('load', () => {
