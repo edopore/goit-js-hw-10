@@ -3,8 +3,7 @@ import axios from 'axios';
 axios.defaults.headers.common['x-api-key'] =
   'live_0wIhaeoDJAEGu9P7tzckt9shsFx4HUWYgg7HsaACP284dQCz1boSPmpHnPivarpO';
 
-BASE_URL = `https://api.thecatapi.com/v1/`;
-//GET_BREED_URL = 'https://api.thecatapi.com/v1/images/search?breed_ids=identificador_de_raza'
+const BASE_URL = `https://api.thecatapi.com/v1/`;
 
 function fetchBreeds() {
   return axios
