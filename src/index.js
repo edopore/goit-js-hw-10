@@ -15,6 +15,9 @@ const catBreed = document.createElement('div');
 const catBreedTitle = document.createElement('h2');
 const breedDesc = document.createElement('p');
 const catTemperament = document.createElement('p');
+const firstOption = document.createElement('option');
+
+firstOption.textContent = 'Select an option!!!';
 
 catDesc.setAttribute('class', 'cat-desc');
 catBreed.setAttribute('class', 'cat-params');
@@ -22,6 +25,7 @@ catBreed.setAttribute('class', 'cat-params');
 catBreed.append(catBreedTitle, breedDesc, catTemperament);
 catDesc.append(catImage, catBreed);
 catInfo.append(catDesc);
+selectItem.append(firstOption);
 
 fetchBreeds()
   .then(data => {
