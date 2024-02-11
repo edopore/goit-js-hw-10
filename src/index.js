@@ -25,9 +25,8 @@ catInfo.append(catDesc);
 
 fetchBreeds()
   .then(data => {
-    console.log(data);
-
     try {
+      pLoading.classList.toggle('error-view');
       data.forEach(element => {
         let item = document.createElement('option');
         item.setAttribute('value', element.id);
@@ -37,6 +36,9 @@ fetchBreeds()
       new SlimSelect({
         select: '.breed-select',
       });
+      setTimeout(() => {
+        pLoading.classList.toggle('error-view');
+      }, 500);
     } catch (error) {
       Notify.failure(pError.textContent);
     }
@@ -46,6 +48,7 @@ fetchBreeds()
   });
 
 selectItem.addEventListener('change', () => {
+  pLoading.classList.toggle('error-view');
   fetchCatByBreed(selectItem.value)
     .then(data => {
       catImage.setAttribute('src', data[0].url);
@@ -61,6 +64,9 @@ selectItem.addEventListener('change', () => {
     .catch(() => {
       Notify.failure(pError.textContent);
     });
+  setTimeout(() => {
+    pLoading.classList.toggle('error-view');
+  }, 500);
 });
 selectItem.addEventListener('load', () => {
   console.log('cargas');
