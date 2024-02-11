@@ -68,7 +68,3 @@ selectItem.addEventListener('change', () => {
     pLoading.classList.toggle('error-view');
   }, 500);
 });
-selectItem.addEventListener('load', () => {
-  console.log('cargas');
-  pLoading.classList.toggle('error-view');
-});
