@@ -34,14 +34,16 @@ fetchBreeds()
         item.textContent = element.name;
         selectItem.append(item);
       });
+      new SlimSelect({
+        select: '.breed-select',
+      });
     } catch (error) {
       Notify.failure(pError.textContent);
     }
   })
   .catch(error => {
-    console.log(error);
-
     Notify.failure(pError.textContent);
+    Notify.failure(error);
   });
 
 selectItem.addEventListener('change', () => {
@@ -58,13 +60,11 @@ selectItem.addEventListener('change', () => {
         '<span>Temperament: </span>' + breeds[0].temperament;
     })
     .catch(error => {
-      console.log(error);
       Notify.failure(pError.textContent);
+      Notify.failure(error);
     });
 });
-
-setTimeout(() => {
-  new SlimSelect({
-    select: '.breed-select',
-  });
-}, 1000);
+selectItem.addEventListener('load', () => {
+  console.log('cargas');
+  pLoading.classList.toggle('error-view');
+});
